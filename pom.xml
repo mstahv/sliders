@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <!-- A project parent that brings in required deps for Vaadin Flow add-ons &
+             common Maven configuration.
+        -->
+        <groupId>in.virit.sb</groupId>
+        <artifactId>viritin-addon-project-parent</artifactId>
+        <version>0.0.7</version>
+        <relativePath />
+    </parent>
+
+    <properties>
+        <vaadin.version>24.5.3</vaadin.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <!-- "Some" metadata required by Maven Central. They help in indexing and in various tooling like IDEs.
+          Do NOT remove these, but replace with proper values for your project. -->
+
+    <!-- This is important for Central publishing: use a namespace that is granted for you.
+         Easiest for personal projects: GitHub account
+    -->
+    <groupId>io.github.mstahv</groupId>
+    <artifactId>sliders</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <!-- Name and description are also required for Central -->
+    <name>Sliders for Vaadin Flow</name>
+    <description>Provides more feature packed sliders for picking numbers, than what is available
+        via built-in RangeInput.</description>
+
+    <organization>
+        <name>Viritin</name>
+    </organization>
+    <url>https://github.com/mstahv/slider</url>
+    <developers>
+        <developer>
+            <name>Matti Tahvonen</name>
+        </developer>
+    </developers>
+    <scm>
+        <url>https://github.com/mstahv/flow-sliders</url>
+        <connection>scm:git:git://github.com/mstahv/sliders.git</connection>
+        <!--
+            developerConnection is used by e.g. maven-release-plugin to push changes to the repo.
+            Some "newbies" might be better off with https, I always go with ssh 😎
+        -->
+        <developerConnection>scm:git:ssh://git@github.com:/mstahv/sliders.git</developerConnection>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/mstahv/sliders/issues</url>
+    </issueManagement>
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <!-- That's "all" metadata that is needed for Central. -->
+
+    <dependencies>
+        <!-- Example of a transitive dependency, used by the component for fluent API -->
+        <dependency>
+            <groupId>in.virit</groupId>
+            <artifactId>viritin</artifactId>
+            <version>2.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>in.virit</groupId>
+            <artifactId>mopo</artifactId>
+            <version>0.0.3</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Enable Copilot if needed for development, faster starts/restarts without, thus disabled here
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>copilot</artifactId>
+            <scope>test</scope>
+        </dependency>
+         -->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- The parent pom brings in some good defaults for flattening OSS libraries, Vaadin addons
+             and publishing to central. -->
+            <plugin>
+                <groupId>net.revelc.code.formatter</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+                <version>2.12.2</version>
+            </plugin>
+       </plugins>
+    </build>
+</project>
+
