@@ -18,8 +18,9 @@ public class IntSlider extends CustomField<Integer> implements
 
     private final RangeInput input = new RangeInput();
     private final Span min = new Span();
-    private final Span max = new Span();
+    private final Span max = new VSpan().withStyle("left", "100%");
     private final Span valueLabel = new VSpan().withClassName("value-label");
+    private final VDiv valueLabels;
 
     /**
      * Creates a new slider with the given label, min, max and initial value.
@@ -33,15 +34,16 @@ public class IntSlider extends CustomField<Integer> implements
         super(0);
         addClassName("slider");
         setLabel(label);
+        valueLabels = new VDiv(
+                min,
+                max
+        ).withClassName("labels");
         add(new Div(
                 new VDiv(
                         valueLabel,
                         input
                 ).withClassName("wrapper"),
-                new VDiv(
-                        min,
-                        max
-                ).withClassName("slider-min-max")
+                valueLabels
         ));
 
         setMin(minValue);
@@ -83,13 +85,18 @@ public class IntSlider extends CustomField<Integer> implements
             justify-content: center;
             min-width: 100px;
         }
-        .slider .slider-min-max {
-          margin-top: var(--lumo-space-m);
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          font-size: var(--lumo-font-size-s);
-          color: var(--lumo-contrast-90pct);
+        .slider .labels {
+          display: block;
+          position: relative;
+          width: calc(100% - var(--lumo-size-xl)/2);
+          span {
+            font-size: var(--lumo-font-size-s);
+            color: var(--lumo-contrast-90pct);
+            height: var(--lumo-size-m);
+            position: absolute;
+            display: block;
+            transform: translateX(-50%);
+          }
         }
         .slider .wrapper {
             width:100%;
@@ -205,4 +212,24 @@ public class IntSlider extends CustomField<Integer> implements
         valueLabel.setText(String.valueOf(newPresentationValue));
     }
 
+    public void setMaxLabel(String label) {
+        max.setText(label);
+    }
+
+    public void setMinLabel(String label) {
+        min.setText(label);
+    }
+
+    public void addCustomLabel(int customLabelValue, String customLabel) {
+        valueLabels.add(new ValueLabel(customLabelValue, customLabel));
+    }
+
+    private class ValueLabel extends Span {
+        public ValueLabel(int customLabelValue, String customLabel) {
+            setText(customLabel);
+            getElement().setProperty("customLabelValue", customLabelValue);
+            double pct = (customLabelValue - input.getMin()) / (input.getMax() - input.getMin()) * 100;
+            getElement().getStyle().setLeft(pct + "%");
+        }
+    }
 }
