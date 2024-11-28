@@ -8,9 +8,9 @@ import com.vaadin.flow.router.Route;
 public class SliderView extends VerticalLayout {
     public SliderView() {
 
-        IntSlider doubleSlider = new IntSlider("Select a value", 0, 100, 69);
-        add(doubleSlider);
-        doubleSlider.addValueChangeListener(e -> {
+        IntSlider intSlider = new IntSlider("Select a value", 0, 100, 0);
+        add(intSlider);
+        intSlider.addValueChangeListener(e -> {
             Notification.show("Value changed to " + e.getValue());
         });
     }

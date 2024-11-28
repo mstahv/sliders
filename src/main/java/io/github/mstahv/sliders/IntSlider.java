@@ -216,6 +216,13 @@ public class IntSlider extends CustomField<Integer> implements
         max.setText(label);
     }
 
+    @Override
+    public void setValue(Integer value) {
+        super.setValue(value);
+        // Workaound for a Vaadin bug
+        input.getElement().setProperty("value", value);
+    }
+
     public void setMinLabel(String label) {
         min.setText(label);
     }
