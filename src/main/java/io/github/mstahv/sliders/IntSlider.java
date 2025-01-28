@@ -192,6 +192,15 @@ public class IntSlider extends CustomField<Integer> implements
         max.setText(String.valueOf(maxValue));
     }
 
+    /**
+     * Returns the maximum value of the slider.
+     *
+     * @return max value
+     */
+    public double getMax() {
+        return input.getMax();
+    }
+
     @Override
     protected Integer generateModelValue() {
         // The magic I don't really like about CustomField, this gets called automatically for
