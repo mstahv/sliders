@@ -1,5 +1,6 @@
 package io.github.mstahv.sliders;
 
+import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.customfield.CustomField;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.RangeInput;
@@ -50,7 +51,6 @@ public class IntSlider extends CustomField<Integer> implements
         setMax(maxValue);
         setValue(value);
 
-        baseCss();
         setWidth("100%");
 
         input.getElement().executeJs("""
@@ -69,6 +69,12 @@ public class IntSlider extends CustomField<Integer> implements
         setTimeout(() => adjustLabel(), 0);
         new ResizeObserver(() => adjustLabel()).observe(input.parentElement);
         """, min, max, valueLabel);
+    }
+
+    @Override
+    protected void onAttach(AttachEvent attachEvent) {
+        super.onAttach(attachEvent);
+        baseCss();
     }
 
     /**
@@ -190,6 +196,15 @@ public class IntSlider extends CustomField<Integer> implements
     public void setMax(int maxValue) {
         input.setMax(maxValue);
         max.setText(String.valueOf(maxValue));
+    }
+
+    /**
+     * Returns the maximum value of the slider.
+     *
+     * @return max value
+     */
+    public double getMax() {
+        return input.getMax();
     }
 
     @Override
