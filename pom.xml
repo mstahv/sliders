@@ -27,7 +27,7 @@
     -->
     <groupId>io.github.mstahv</groupId>
     <artifactId>sliders</artifactId>
-    <version>0.0.4-SNAPSHOT</version>
+    <version>0.0.4</version>
     <packaging>jar</packaging>
     <!-- Name and description are also required for Central -->
     <name>Sliders for Vaadin Flow</name>
@@ -51,7 +51,7 @@
             Some "newbies" might be better off with https, I always go with ssh 😎
         -->
         <developerConnection>scm:git:ssh://git@github.com:/mstahv/sliders.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>sliders-0.0.4</tag>
   </scm>
 
     <issueManagement>
