@@ -8,14 +8,13 @@
         -->
         <groupId>in.virit.sb</groupId>
         <artifactId>viritin-addon-project-parent</artifactId>
-        <version>0.0.7</version>
+        <version>0.0.8</version>
         <relativePath />
     </parent>
 
     <properties>
-        <vaadin.version>24.5.3</vaadin.version>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <vaadin.version>24.6.3</vaadin.version>
+        <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
