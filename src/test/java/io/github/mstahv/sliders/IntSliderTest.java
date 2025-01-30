@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class IntSliderTest {
-    @Disabled("Need to implement KaribuTest or similar?")
+
     @Test
     void getMax_shouldReturnCorrectMaxValue() {
         int min = 0;
