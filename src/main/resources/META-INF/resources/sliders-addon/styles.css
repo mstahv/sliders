@@ -1,0 +1,92 @@
+.slider>div {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+}
+.slider .labels {
+  display: block;
+  position: relative;
+  width: calc(100% - var(--lumo-size-xl)/2);
+  span {
+    font-size: var(--lumo-font-size-s);
+    color: var(--lumo-contrast-90pct);
+    height: var(--lumo-size-m);
+    position: absolute;
+    display: block;
+    transform: translateX(-50%);
+  }
+}
+.slider .wrapper {
+    width:100%;
+    position: relative;
+}
+.slider input[type=range] {
+    width: 100%;
+    -webkit-appearance: none;
+    margin:0;
+    margin-top: var(--lumo-space-xl);
+}
+.slider input:focus {
+        outline: none;
+    }
+.slider input::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 1px;
+        cursor: pointer;
+        box-shadow: none;
+        background: var(--lumo-contrast);
+        border-radius: 0px;
+        border: 0px solid #010101;
+    }
+.slider input::-moz-range-track {
+        width: 100%;
+        height: 1px;
+        cursor: pointer;
+        box-shadow: none;
+        background: var(--lumo-contrast);
+        border-radius: 0px;
+        border: 0px solid #010101;
+    }
+.slider input::-webkit-slider-thumb {
+        box-shadow: 0px var(--lumo-space-s) var(--lumo-space-s) var(--lumo-contrast-20pct);
+        height: var(--lumo-size-l);
+        width: var(--lumo-size-s);
+        box-sizing: border-box;
+        border-radius: var(--lumo-size-s);
+        background: var(--lumo-primary-color);
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -22px;
+    }
+.slider input::-moz-range-thumb{
+        box-shadow: 0px var(--lumo-space-s) var(--lumo-space-s) var(--lumo-contrast-20pct);
+        height: var(--lumo-size-l);
+        width: var(--lumo-size-s);
+        box-sizing: border-box;
+        border-radius: var(--lumo-size-s);
+        background: var(--lumo-primary-color);
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -22px;
+  }
+.slider input::-moz-focus-outer {
+    border: 0;
+}
+
+.slider .value-label {
+    position: relative;
+    display: block;
+    width: var(--lumo-size-m);
+    height: var(--lumo-size-m);
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid var(--lumo-contrast-70pct);
+    color: var(--lumo-contrast-90pct);
+    font-size: var(--lumo-font-size-m);
+    line-height:var(--lumo-size-m);
+    padding-top: 0px;
+}
